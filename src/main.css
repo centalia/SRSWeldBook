@@ -1,0 +1,15 @@
+body{
+    display: flex;
+    flex-direction: column;
+    place-items: center;
+    background-color: gray;
+}
+
+.table{
+    border: 1px solid black;
+}
+
+.table__header{
+    border: 1px solid black;
+    padding: 0;
+}

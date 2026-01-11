@@ -1,8 +1,12 @@
+@import './style/colors.scss';
+
 body{
     display: flex;
     flex-direction: column;
     place-items: center;
-    background-color: gray;
+    background-color: var(--color-primary);
+
+    color: white;
 }
 
 .table{

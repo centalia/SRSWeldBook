@@ -1,35 +1,61 @@
-.table{
-    display: grid;
-
-    grid-template-columns: 20px 60px 80px 200px 500px 150px 200px;
-    grid-auto-rows: 47px;
-    gap: 1px;
-    
+.weld__table{
+    display: grid; 
     border: 1px solid black;
     border-radius: 12px;
+
+    text-align: center;
 }
 
-.table__row{
-    display: flex;
-    border: 1px solid black;
+.row{
+    display: grid;
+    grid-template-columns: 30px 60px 80px 200px 500px 150px 200px;
+    grid-auto-rows: 47px;
+
     justify-content: center;
     align-items: center;
+
+    // border: 1px solid black;
+
     &:not(:has(.status:hover)):hover{
         background-color: rgba(255,255,255,0.15);
         transition-duration: 0.2s;
+    }    
     &:first-child{
         border-top-left-radius: 12px;
         border-top-right-radius: 12px;
-    }    
+    }  
     &:last-child{
         border-bottom-left-radius: 12px;
         border-bottom-right-radius: 12px;
     }
+    &--header{
+        font-weight: 600;
+        border-bottom: 2px solid black !important;
+    }
+}
+
+.row{
+  position: relative;
+  padding: 2px 0 ;
+  &::after{
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(
+      to right,
+      transparent 0%,
+      rgba(59, 83, 112, 0.3) 20%,
+      rgba(59, 83, 112, 1) 50%,
+      rgba(59, 83, 112, 0.3) 80%,
+      transparent 100%
+    );
+    margin: 0 auto;
+  }
+  &:last-child::after{
+    display: none;
   }
 }
-
-.table__header{
-    font-weight: 600;
-    border-bottom: 3px solid black !important;
-}
-

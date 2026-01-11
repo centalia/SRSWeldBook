@@ -10,66 +10,30 @@ const Table = () =>{
     ];
 
     return(
-        // <div className="table">
-        //     <div className="table__header">№</div>
-        //     <div className="table__header">Цех</div>
-        //     <div className="table__header">Номер</div>
-        //     <div className="table__header">Местонахождение</div>
-        //     <div className="table__header">Модель</div>
-        //     <div className="table__header">Дата ТО</div>
-        //     <div className="table__header">Наладчик</div>
-        //     {data.map(row => (
-        //         <>
-        //             <div className="table__row" key={`id-${row.id}`}>{row.id}</div>
-        //             <div className="table__row" key={`id-${row.workshop}`}>{row.workshop}</div>
-        //             <div className="table__row" key={`id-${row.number}`}>{row.number}</div>
-        //             <div className="table__row" key={`id-${row.location}`}>{row.location}</div>
-        //             <div className="table__row" key={`id-${row.model}`}>{row.model}</div>
-        //             <div className="table__row" key={`id-${row.date}`}>{row.date}</div>
-        //             <div className="table__row" key={`id-${row.worker}`}>{row.worker}</div>
-        //         </>
-        //     ))}
-        // </div>
-        <section class="tracker-table" role="table" >
-        <div class="tracker-table__header" role="rowgroup">
-            <div class="row row_header" role="row">
-              <div class="col" role="columnheader">#</div>
-              <div class="col" role="columnheader">Title</div>  
-              <div class="col" role="columnheader">Status</div>  
-              <div class="col" role="columnheader">Episode</div>
-            </div>            
-            <div class="row" role="row">
-              <div class="col" role="columnbody">1</div>
-              <div class="col" role="columnbody">Атака на титанов</div>  
-              <div class="col status status--watching" role="columnbody">Смотрю</div>  
-              <div class="col" role="columnbody">23</div>
-            </div>            
-            <div class="row" role="row">
-              <div class="col" role="columnbody">2</div>
-              <div class="col" role="columnbody">Рубеж Шангри-Ла</div>  
-              <div class="col status status--planned" role="columnbody">В планах</div>  
-              <div class="col" role="columnbody">26</div>
-            </div>            
-            <div class="row" role="row">
-              <div class="col" role="columnbody">3</div>
-              <div class="col" role="columnbody">Вампир не умеет сосать</div>  
-              <div class="col status status--on-hold" role="columnbody">Отложено</div>  
-              <div class="col" role="columnbody">12</div>
-            </div>            
-            <div class="row" role="row">
-              <div class="col" role="columnbody">4</div>
-              <div class="col" role="columnbody">Первородный грех Такопи</div>  
-              <div class="col status status--dropped" role="columnbody">Брошено</div>  
-              <div class="col" role="columnbody">12</div>
-            </div>            
-            <div class="row" role="row">
-              <div class="col" role="columnbody">5</div>
-              <div class="col" role="columnbody">Наруто</div>  
-              <div class="col status status--completed" role="columnbody">Просмотрено</div>  
-              <div class="col" role="columnbody">720</div>
+        <section className="weld__table"  >
+         
+            <div className="row row--header weld__table-row " >
+                <div className="col weld__table-col">№</div>
+                <div className="col weld__table-col">Цех</div>
+                <div className="col weld__table-col">Номер</div>
+                <div className="col weld__table-col">Местонахождение</div>
+                <div className="col weld__table-col">Модель</div>
+                <div className="col weld__table-col">Дата ТО</div>
+                <div className="col weld__table-col">Наладчик</div>
             </div>
-        </div>      
+                        
+          {data.map(row => ( <div className="row weld__table-row">
+                  <div className="col weld__table-col" key={`id-${row.id}`}>{row.id}</div>
+                  <div className="col weld__table-col" key={`id-${row.workshop}`}>{row.workshop}</div>
+                  <div className="col weld__table-col" key={`id-${row.number}`}>{row.number}</div>
+                  <div className="col weld__table-col" key={`id-${row.location}`}>{row.location}</div>
+                  <div className="col weld__table-col" key={`id-${row.model}`}>{row.model}</div>
+                  <div className="col weld__table-col" key={`id-${row.date}`}>{row.date}</div>
+                  <div className="col weld__table-col" key={`id-${row.worker}`}>{row.worker}</div>
+            </div> 
+          ))}
+
       </section>
-    );
-};
+    
+)};
 export default Table 

@@ -10,8 +10,7 @@ const Table = () =>{
     ];
 
     return(
-        <section className="weld__table"  >
-         
+        <section className="weld__table">
             <div className="row row--header weld__table-row " >
                 <div className="col weld__table-col">№</div>
                 <div className="col weld__table-col">Цех</div>
@@ -22,18 +21,18 @@ const Table = () =>{
                 <div className="col weld__table-col">Наладчик</div>
             </div>
                         
-          {data.map(row => ( <div className="row weld__table-row">
-                  <div className="col weld__table-col" key={`id-${row.id}`}>{row.id}</div>
-                  <div className="col weld__table-col" key={`id-${row.workshop}`}>{row.workshop}</div>
-                  <div className="col weld__table-col" key={`id-${row.number}`}>{row.number}</div>
-                  <div className="col weld__table-col" key={`id-${row.location}`}>{row.location}</div>
-                  <div className="col weld__table-col" key={`id-${row.model}`}>{row.model}</div>
-                  <div className="col weld__table-col" key={`id-${row.date}`}>{row.date}</div>
-                  <div className="col weld__table-col" key={`id-${row.worker}`}>{row.worker}</div>
-            </div> 
-          ))}
-
-      </section>
-    
-)};
+            {data.map(row => ( 
+                <div className="row weld__table-row">
+                    <div className="col weld__table-col" key={`id-${row.id}`}>{row.id}</div>
+                    <div className="col weld__table-col" key={`id-${row.workshop}`}>{row.workshop}</div>
+                    <div className="col weld__table-col" key={`id-${row.number}`}>{row.number}</div>
+                    <div className="col weld__table-col" key={`id-${row.location}`}>{row.location}</div>
+                    <div className="col weld__table-col" key={`id-${row.model}`}>{row.model}</div>
+                    <div className="col weld__table-col" key={`id-${row.date}`}>{row.date}</div>
+                    <div className="col weld__table-col" key={`id-${row.worker}`}>{row.worker}</div>
+                </div> 
+            ))}
+        </section>
+    )
+};
 export default Table 

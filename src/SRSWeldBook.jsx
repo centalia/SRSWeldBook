@@ -1,11 +1,11 @@
 import Header from "./components/Header";
-import Table from "./components/Table";
+import DesktopGrid from "./components/JournalPage/DesktopGrid";
 
 const SRSWeldBook = () =>{
     return (
         <div>
             <Header />
-            <Table />
+            <DesktopGrid />
         </div>
     );
 };

@@ -1,0 +1,1 @@
+export const formatData = iso => iso ? new Date(iso).toLocaleDateString("ru-RU") : "-";

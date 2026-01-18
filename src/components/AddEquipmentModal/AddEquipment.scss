@@ -1,0 +1,20 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+
+  input,
+  button {
+    padding: 8px;
+  }
+}
+
+.input--error {
+  border-color: #e74c3c;
+  background: #000;
+}
+
+.error-text {
+  color: #e74c3c;
+  font-size: 12px;
+}

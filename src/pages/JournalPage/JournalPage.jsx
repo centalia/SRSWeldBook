@@ -8,8 +8,11 @@ import DesktopGrid from "../../components/DesktopGrid/DesktopGrid";
 const JournalPage = () => {
   const { items } = useEquipment();
   const [statusFilter, setStatusFilter] = useState("all");
+  const [typeFilter, setTypeFilter] = useState("all");
+  const [modelFilter, setModelFilter] = useState("all");
   const [sortBy, setSortBy] = useState("date_desc");
   const [view, setView] = useState("all");
+  // const [span, setSpanFilter] = useState("all");
   const [editing, setEditing] = useState(null);
 
   const lists = {
@@ -31,10 +34,13 @@ const JournalPage = () => {
   const listItems = lists[view] ?? [];
 
   const filteredItems = listItems.filter((item) => {
-    const statusOk = statusFilter === "all" || item.status === statusFilter;
-    // const typeOk = typeFilter === "all" || item.type === typeFilter;
+    if (!item) return false;
 
-    return statusOk;
+    const statusOk  = statusFilter === "all"  || item.status === statusFilter;
+    const typeOk    = typeFilter === "all"    || item.type === typeFilter;
+    const modelOk   = modelFilter === "all"   || item.model === modelFilter;
+
+    return statusOk && typeOk && modelOk;
   });
 
   const sortItems = (list, sortBy) => {
@@ -68,10 +74,14 @@ const JournalPage = () => {
         </button>
       </div>
       <FiltersSort
-        status={statusFilter}
-        onStatusChange={setStatusFilter}
-        sortBy={sortBy}
-        onSortChange={setSortBy}
+        status          = { statusFilter }
+        onStatusChange  = { setStatusFilter }
+        sortBy          = { sortBy }
+        onSortChange    = { setSortBy }
+        typeFilter      = { typeFilter }
+        onTypeChange    = { setTypeFilter }
+        modelFilter     = { modelFilter }
+        onModelChange   = { setModelFilter }
       />
       <DesktopGrid 
         items={visibleItems} 

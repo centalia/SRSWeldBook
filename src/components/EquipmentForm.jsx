@@ -92,8 +92,12 @@ const EquipmentForm = ({ initialData, onSuccess }) => {
         <option value="Система плазменной резки">
           Система плазменной резки
         </option>
-        <option value="Сварочный выпрямитель">Сварочный выпрямитель</option>
-        <option value="Машина контакной сварки">Машина контакной сварки</option>
+        <option value="Сварочный выпрямитель">
+          Сварочный выпрямитель
+        </option>
+        <option value="Машина контакной сварки">
+          Машина контакной сварки
+        </option>
         <option value="Аппарат ручной сварки MMA">
           Аппарат ручной сварки MMA
         </option>

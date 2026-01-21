@@ -12,7 +12,7 @@ const JournalPage = () => {
   const [modelFilter, setModelFilter] = useState("all");
   const [sortBy, setSortBy] = useState("date_desc");
   const [view, setView] = useState("all");
-  // const [span, setSpanFilter] = useState("all");
+  const [spanFilter, setSpanFilter] = useState("all");
   const [editing, setEditing] = useState(null);
 
   const lists = {
@@ -36,11 +36,11 @@ const JournalPage = () => {
   const filteredItems = listItems.filter((item) => {
     if (!item) return false;
 
-    const statusOk  = statusFilter === "all"  || item.status === statusFilter;
-    const typeOk    = typeFilter === "all"    || item.type === typeFilter;
-    const modelOk   = modelFilter === "all"   || item.model === modelFilter;
-
-    return statusOk && typeOk && modelOk;
+    const statusOk  = statusFilter === "all"  || item.status   === statusFilter;
+    const typeOk    = typeFilter === "all"    || item.type     === typeFilter;
+    const modelOk   = modelFilter === "all"   || item.model    === modelFilter;
+    const spanOk    = spanFilter === "all"    || item.location === spanFilter;
+    return statusOk && typeOk && modelOk && spanOk;
   });
 
   const sortItems = (list, sortBy) => {
@@ -82,6 +82,8 @@ const JournalPage = () => {
         onTypeChange    = { setTypeFilter }
         modelFilter     = { modelFilter }
         onModelChange   = { setModelFilter }
+        spanFilter      = { spanFilter }
+        onSpanChange    = { setSpanFilter }
       />
       <DesktopGrid 
         items={visibleItems} 

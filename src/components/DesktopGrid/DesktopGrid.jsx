@@ -1,6 +1,7 @@
 import { formatData } from "../../utils/formatData";
 import { EQUIPMENT_STATUS_LABEL } from "../../constants/equipmentStatus";
 import "./DesktopGrid.scss";
+import { getLocation } from "../../utils/getLocation";
 
 
 const DesktopGrid = ({ items, onEdit }) =>{
@@ -27,13 +28,27 @@ const DesktopGrid = ({ items, onEdit }) =>{
                         }
                     }
                 >
-                    <div className="col weld__table-col">{item.invNumber}</div>
-                    <div className="col weld__table-col">{item.type}</div>
-                    <div className="col weld__table-col">{item.model}</div>
-                    <div className="col weld__table-col">{item.location}</div>
-                    <div className="col weld__table-col">{item.serviceman}</div>
-                    <div className="col weld__table-col">{formatData(item.lastRepairAt)}</div>
-                    <div className="col weld__table-col">{EQUIPMENT_STATUS_LABEL[item.status]}</div>
+                    <div className="col weld__table-col">
+                        {item.invNumber}
+                    </div>
+                    <div className="col weld__table-col">
+                        {item.type}
+                    </div>
+                    <div className="col weld__table-col">
+                        {item.model}
+                    </div>
+                    <div className="col weld__table-col">
+                        {getLocation(item.location)}
+                    </div>
+                    <div className="col weld__table-col">
+                        {item.serviceman}
+                    </div>
+                    <div className="col weld__table-col">
+                        {formatData(item.lastRepairAt)}
+                    </div>
+                    <div className="col weld__table-col">
+                        {EQUIPMENT_STATUS_LABEL[item.status]}
+                    </div>
                 </div> 
             ))}
         </section>

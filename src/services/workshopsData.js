@@ -1,8 +1,10 @@
-export const WORKSHOP = {
-    "SWL-1":{
-        name: "ЦМТ-1",
-        span:{
-            span-1
-        }
-    }
+export const WORKSHOPS = {
+    "span-1": "1 пролет", 
+    "span-2": "2 пролет", 
+    "span-3": "3 пролет", 
+    "span-4": "4 пролет", 
+    "span-5": "5 пролет", 
+    "span-6": "6 пролет", 
+    "span-7": "7 пролет", 
+    "span-8": "8 пролет", 
 }

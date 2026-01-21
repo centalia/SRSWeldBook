@@ -1,4 +1,5 @@
 import { EQUIPMENT_MODELS } from "../services/equipmentModels";
+import { WORKSHOPS } from "../services/workshopsData";
 
 const FiltersSort = ({
     status,
@@ -9,6 +10,8 @@ const FiltersSort = ({
     onTypeChange,
     modelFilter,
     onModelChange,
+    spanFilter,
+    onSpanChange
 }) => {
     
     const models = typeFilter === "all"
@@ -59,6 +62,19 @@ const FiltersSort = ({
             {models.map(model => (
                 <option key={model} value={model}>
                     {model}
+                </option>
+            ))}
+        </select>
+        <select
+            value={spanFilter}
+            onChange={e => onSpanChange(e.target.value)}
+        >
+            <option value={"all"}>
+                Все пролеты
+            </option>
+            {Object.entries(WORKSHOPS).map(([id, label]) => (
+                <option key={id} value={id}>
+                    {label}
                 </option>
             ))}
         </select>

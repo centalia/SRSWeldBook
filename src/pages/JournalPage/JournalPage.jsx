@@ -3,17 +3,19 @@ import { useEquipment } from "../../context/EquipmentContext";
 import EditEquipmentModal from "../../components/EditEquipmentModal/EditEquipmentModal";
 import FiltersSort from "../../components/FiltersSort"
 import DesktopGrid from "../../components/DesktopGrid/DesktopGrid";
+import SearchInput from "../../components/SearchInput";
 
 
 const JournalPage = () => {
   const { items } = useEquipment();
   const [statusFilter, setStatusFilter] = useState("all");
-  const [typeFilter, setTypeFilter] = useState("all");
-  const [modelFilter, setModelFilter] = useState("all");
-  const [sortBy, setSortBy] = useState("date_desc");
-  const [view, setView] = useState("all");
-  const [spanFilter, setSpanFilter] = useState("all");
-  const [editing, setEditing] = useState(null);
+  const [typeFilter, setTypeFilter]     = useState("all");
+  const [modelFilter, setModelFilter]   = useState("all");
+  const [sortBy, setSortBy]             = useState("date_desc");
+  const [view, setView]                 = useState("all");
+  const [spanFilter, setSpanFilter]     = useState("all");
+  const [editing, setEditing]           = useState(null);
+  const [search, setSearch]             = useState("") 
 
   const lists = {
     all: items.filter(Boolean),
@@ -30,7 +32,10 @@ const JournalPage = () => {
     workshop: items.filter(i => i &&  i.status === "in_workshop"),
   };
   
-  
+  const normalize = value => 
+      value?.toString().toLowerCase() ?? "";
+  const searchValue = normalize(search);
+
   const listItems = lists[view] ?? [];
 
   const filteredItems = listItems.filter((item) => {
@@ -40,7 +45,17 @@ const JournalPage = () => {
     const typeOk    = typeFilter === "all"    || item.type     === typeFilter;
     const modelOk   = modelFilter === "all"   || item.model    === modelFilter;
     const spanOk    = spanFilter === "all"    || item.location === spanFilter;
-    return statusOk && typeOk && modelOk && spanOk;
+    
+    const searchOk  = !searchValue || 
+      normalize(item.invNumber).includes(searchValue) ||
+      normalize(item.model).includes(searchValue) ||
+      normalize(item.serviceman).includes(searchValue);
+      
+    return  statusOk && 
+            typeOk && 
+            modelOk && 
+            spanOk &&
+            searchOk;
   });
 
   const sortItems = (list, sortBy) => {
@@ -84,6 +99,10 @@ const JournalPage = () => {
         onModelChange   = { setModelFilter }
         spanFilter      = { spanFilter }
         onSpanChange    = { setSpanFilter }
+      />
+      <SearchInput
+        value={ search }
+        onChange={ setSearch }
       />
       <DesktopGrid 
         items={visibleItems} 

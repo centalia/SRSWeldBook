@@ -59,8 +59,8 @@ const EquipmentForm = ({ initialData, onSuccess }) => {
       type: "",
       model: "",
       location:{
-          id: workshop.id,
-          label: workshop.label,
+          id: workshops.id,
+          label: workshops.label,
       },
       serviceman: "",
       lastRepairAt: "",
